@@ -1,6 +1,6 @@
 :root{
-    --primary-color: #01008c;
-    --secondary-color: #fdc30b;
+    --primary-color: #6730ec;
+    --secondary-color: #a9d2ff;
     --dark-color: #000000;
     --white-color: #e7e7e7;
 }
@@ -11,6 +11,10 @@ body {
 
 nav {
     background-color: var(--dark-color);
+}
+
+.navappfont {
+    font-family: 'Quantico', sans-serif;
 }
 
 footer {

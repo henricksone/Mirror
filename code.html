@@ -2,7 +2,7 @@
 <html lang="en" class="h-100">
 
 <head>
-    <title>App Name: A Coding Project by Henricksone</title>
+    <title>Mirror: A Coding Project by Henricksone</title>
 
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -24,8 +24,8 @@
     <!-- === Navigation === -->
 <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">
-            <img src="/img/EH-Logo.png" class="d-inline-block align-text-top" alt="Henricksone Logo" height="24"> APP NAME</a>
+        <a class="navbar-brand navappfont" href="#">
+            <img src="/img/EH-Logo.png" class="d-inline-block align-text-top" alt="Henricksone Logo" height="24"> MIRROR</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
             aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -55,20 +55,63 @@
     <!-- === Main === -->
     <main class="flex-shrink-0">
        <div class="container py-5 px-5 mt-5">
-           <h2 class="border-1 border-bottom border-dark">The Code for APP NAME</h2>
+           <h2 class="border-1 border-bottom border-dark">The Code for MIRROR</h2>
            <div class="row row-cols-1 row-cols-lg-2">
                <div class="col-lg-8">
                    <pre class="line-numbers"><code class="language-javascript">
-                    // Call Hello World
-                    function HelloWorld(){
-                        alert("hello World");
-                    }
+// Get string value from page
+// Control
+function getValues(){
+    let userString = document.getElementById("userString").value;
+    return userString;
+}
+
+// Reverse the String
+// Logic
+function reverseString(userString){
+    let revString = [];
+    // reverse using a for loop
+    for (let index = userString.length - 1; index >= 0; index--) {
+        revString += userString[index];        
+    }
+    return revString;
+}
+
+// Dispaly the Reversed String
+// View
+function displayString(revString){
+    document.getElementById("msg").innerHTML = `Your string reversed is: ${revString}`;
+    document.getElementById("alert").classList.remove("invisible");
+}
+
+// Main
+function main(){
+    document.getElementById("alert").classList.add("invisible");
+    displayString(reverseString(getValues()));
+}
                    </code></pre>
                </div>
                <div class="col-lg-4">
-                   <p>The Code is structured in one function.</p>
-                   <h5>Hello World</h5>
-                   <p>Hello World is a function that displays an alert with a message of "Hello World".</p>
+                   <p>The submit button calls the main() function which itself calls 3 functions: 
+                        getValues(), reverseString(), and displayString(). 
+                   </p>
+                   <h5>main()</h5>
+                   <p>First, it ensures that the results alert box is hidden by adding the 'invisible' class.<br>
+                    Then it nests all three functions passing the results into the next nested function.  It 
+                    calls getValues() which returns the results as a parameter into reverseString(), which 
+                    returns the results as a parameter into displayString().</p>
+                   <h5>getValues()</h5>
+                   <p>It gets the value (string) from the element with id="userString", and returns it.</p>
+                   <h5>reverseString()</h5>
+                   <p>The returned string from getValues() is passed into this function.  It creates an empty 
+                       array.  It then loops in reverse from the final index to the first, and add each character
+                       into a new string and returns it. </p>
+                   <h5>displayString()</h5>
+                   <p>It gets the value (string) from the reverseString() function, and modifies the innerHTML of 
+                       element with Id="msg". It then removes the invisible class from the element with id="alert". 
+                   </p>
+
+
                </div>
            </div>
        </div>
